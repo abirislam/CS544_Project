@@ -11,7 +11,7 @@ from collections import deque
 import json
 
 from echo_quic import EchoQuicConnection, QuicStreamEvent
-import echo_server, echo_client
+import certs.echo_server as echo_server, echo_client
 
 ALPN_PROTOCOL = "echo-protocol"
 

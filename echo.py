@@ -3,7 +3,7 @@ import asyncio
 from aioquic.quic.configuration import QuicConfiguration
 import echo_client
 import quic_engine
-import echo_server
+import certs.echo_server as echo_server
 
 def client_mode(args):
     server_address = args.server
