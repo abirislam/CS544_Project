@@ -13,14 +13,18 @@
 - This program uses the skeleton code provided by the professor
 - You can install the requirements by running `pip install -r requirements.txt`
 - Afterwards you can run the application by using the command for python for your given system, followed by `echo.py` and `server` or `client` depending on which you're running first
-- Example commandline argument for client and server (on windows):
-- `python echo.py server -l 127.0.0.1 -p 55667`
-- `python echo.py client -s 127.0.0.1 -p 55667`
-- Once both server and client are up running (server should be running first), the client will prompt you to login
+- Example commandline arguments for client and server (on linux):
+- `python3 echo.py server -l 127.0.0.1 -p 55667`
+- `python3 echo.py client -s 127.0.0.1 -p 55667`
+- `python3 echo.py server`
+- `python3 echo.py client`
+- Once both server and client are up running (server should be running first), the client and server will do version negotiation
+- If you want to test out the negotiation, you can just check echo_client.py and comment/uncomment out the code thats there
+- The client will prompt you to login
 - There are 2 login credentials you can use: 
 - Username: user1, Password: pass1
 - Username: user2, Password: pass2
-- You can even login with both of these clients at the same time (so would need 3 terminal windows open)
+- You can even login with both of these clients at the same time (so would need 3 terminal windows open -> one for server, one for user1, one for user2)
 
 ## Extra Credit
 - GitHub Repo
