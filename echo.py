@@ -29,14 +29,14 @@ def parse_args():
     
     client_parser = subparsers.add_parser('client')
     client_parser.add_argument('-s','--server', default='localhost', help='Host to connect to')   
-    client_parser.add_argument('-p','--port', type=int, default=4433, help='Port to connect to')
+    client_parser.add_argument('-p','--port', type=int, default=55667, help='Port to connect to')
     client_parser.add_argument('-c','--cert-file', default='./certs/quic_certificate.pem', help='Certificate file (for self signed certs)')
 
     server_parser = subparsers.add_parser('server')
     server_parser.add_argument('-c','--cert-file', default='./certs/quic_certificate.pem', help='Certificate file (for self signed certs)')
     server_parser.add_argument('-k','--key-file', default='./certs/quic_private_key.pem', help='Key file (for self signed certs)')
     server_parser.add_argument('-l','--listen', default='localhost', help='Address to listen on')
-    server_parser.add_argument('-p','--port', type=int, default=4433, help='Port to listen on')
+    server_parser.add_argument('-p','--port', type=int, default=55667, help='Port to listen on')
        
     return parser.parse_args()
 

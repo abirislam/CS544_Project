@@ -13,6 +13,8 @@ import json
 from echo_quic import EchoQuicConnection, QuicStreamEvent
 import certs.echo_server as echo_server, echo_client
 
+from certs.echo_server import remove_inactive_clients
+
 ALPN_PROTOCOL = "echo-protocol"
 
 def build_server_quic_config(cert_file, key_file) -> QuicConfiguration:
@@ -110,14 +112,25 @@ class SessionTicketStore:
     def pop(self, label: bytes) -> Optional[SessionTicket]:
         return self.tickets.pop(label, None)
 
+# checks clients for inactivity and removes them
+async def monitor_inactivity():
+    while True:
+        await remove_inactive_clients()
+        await asyncio.sleep(5)
 
 async def run_server(server, server_port, configuration):  
     print("[svr] Server starting...")  
-    await serve(server, server_port, configuration=configuration, 
+    await asyncio.gather(
+        serve(
+            server,
+            server_port,
+            configuration=configuration,
             create_protocol=AsyncQuicServer,
             session_ticket_fetcher=SessionTicketStore().pop,
-            session_ticket_handler=SessionTicketStore().add)
-    await asyncio.Future()
+            session_ticket_handler=SessionTicketStore().add
+        ),
+        monitor_inactivity()
+    )
   
               
 async def run_client(server, server_port, configuration):    
