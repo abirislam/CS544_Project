@@ -10,10 +10,10 @@
 - When running the client, you can change the port using -p, and address using -s
 
 ## Running The Application
-- This program uses the skeleton code provided by the professor
-- You can install the requirements by running `pip3 install -r requirements.txt`
-- Afterwards you can run the application by using the command for python for your given system, followed by `echo.py` and `server` or `client` depending on which you're running first
-- Example commandline arguments for client and server (on linux):
+- You can install the requirements by running `make install`
+- Run server/client by doing `make run-server` or `make run-client`
+- Can edit makefile to specifiy port / server
+- Alternatively you can specify using the commandline like so:
 - `python3 echo.py server -l 127.0.0.1 -p 55667`
 - `python3 echo.py client -s 127.0.0.1 -p 55667`
 - `python3 echo.py server`
