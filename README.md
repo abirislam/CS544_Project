@@ -11,7 +11,7 @@
 
 ## Running The Application
 - This program uses the skeleton code provided by the professor
-- You can install the requirements by running `pip install -r requirements.txt`
+- You can install the requirements by running `pip3 install -r requirements.txt`
 - Afterwards you can run the application by using the command for python for your given system, followed by `echo.py` and `server` or `client` depending on which you're running first
 - Example commandline arguments for client and server (on linux):
 - `python3 echo.py server -l 127.0.0.1 -p 55667`
